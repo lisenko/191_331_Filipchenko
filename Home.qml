@@ -24,7 +24,7 @@ HomeForm {
                     id: note
                     width: 200
                     height: 200
-                    color: "transparent"
+                    color: notes.get(index).color
                     border.color: "#0081f4"
                     radius: 10
                     // нажатие на плитку подгружает страницу редактирования этой заметки
@@ -61,13 +61,32 @@ HomeForm {
                             color: "#FFFFFF"
                         }
                     }
+                    //тег заметки
+                    Rectangle {
+                        id: tag
+                        width: 200
+                        height: 20
+                        anchors.top: topBar.bottom
+                        border.color: "#0081f4"
+                        Text {
+                            id: tagtext
+                            text: notes.get(index).tag
+                            font.pixelSize: Qt.application.font.pixelSize * 1.2
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            elide: Text.ElideRight
+                            anchors.fill: parent
+                            color: "#000000"
+                        }
+                    }
+
                     //текст заметки
                     Rectangle {
                         id: content
                         width: 190
                         height: 165
                         color: "transparent"
-                        anchors.top: topBar.bottom
+                        anchors.top: tag.bottom
                         anchors.left: note.left
                         Text {
                             id: noteText

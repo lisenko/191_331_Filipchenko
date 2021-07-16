@@ -96,11 +96,21 @@ ApplicationWindow {
         id: notes
         ListElement {
             title: "Заметка"
+            color: "#add8e6"
+            tag: "Работа"
             text: "fiojwefiojwe fweiofjwe jofeiwjfoiwej foiwejofjwe"
         }
         ListElement {
             title: "Вторая заметка"
+            color: "#90ee90"
+            tag: "Напоминания"
             text: "Съешь же еще этих мягких французских булочек, да выпей чаю."
+        }
+        ListElement {
+            title: "Третья заметка"
+            color: "#f7f1af"
+            tag: "Диплом"
+            text: "ааааааааааааааааааааааааааааааааааааааааааааааааааааааа"
         }
     }
 
