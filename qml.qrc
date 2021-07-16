@@ -11,5 +11,6 @@
         <file>Page1.qml</file>
         <file>qmldir</file>
         <file>Page2.qml</file>
+        <file>index.jpg</file>
     </qresource>
 </RCC>

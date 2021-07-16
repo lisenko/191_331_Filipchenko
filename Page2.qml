@@ -9,9 +9,10 @@ Page2Form {
 
         RoundButton {
             id: save
-            x: 532
+            x: 489
             y: 0
             text: "Сохранить"
+            font.pointSize: 14
             background: Rectangle {
                 radius: save.radius
                 color: "#9ae0de"

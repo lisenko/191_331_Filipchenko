@@ -9,15 +9,16 @@ Page1Form {
 
         RoundButton {
             id: save
-            x: 532
+            x: 489
             y: 0
             text: "Сохранить"
+            font.pointSize: 14
             background: Rectangle {
                 radius: save.radius
                 color: "#9ae0de"
             }
             onClicked: {
-                notes.set(0, {"title": title.text, "text": notetext.text})
+                notes.set(editing, {"title": title.text, "text": notetext.text})
                 stackView.pop()
             }
         }
@@ -31,6 +32,7 @@ Page1Form {
             placeholderText: "Заголовок заметки"
             font.pointSize: 14
             font.bold: true
+            text: notes.get(editing).title
         }
 
         TextEdit {
@@ -41,6 +43,13 @@ Page1Form {
             height: 689
             wrapMode: Text.Wrap
             font.pointSize: 12
+            text: notes.get(editing).text
         }
     }
 }
+
+/*##^##
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/

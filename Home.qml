@@ -29,7 +29,10 @@ HomeForm {
                     radius: 10
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: stackView.push("Page1.qml")
+                        onClicked: {
+                            window.editing = index
+                            stackView.push("Page1.qml")
+                        }
                     }
                     Rectangle {
                         id: topBar
@@ -69,6 +72,7 @@ HomeForm {
                             leftPadding: 3
                             text: notes.get(index).text
                             elide: Text.ElideRight
+                            font.pointSize: 12
                         }
                     }
                 }
@@ -78,12 +82,12 @@ HomeForm {
     RoundButton {
         id: add
         text: "+"
-        width: 50
-        height: 50
+        width: 80
+        height: 80
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         font.bold: true
-        font.pointSize: 10
+        font.pointSize: 15
         background: Rectangle {
             radius: add.radius
             color: "#9ae0de"

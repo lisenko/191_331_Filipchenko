@@ -54,12 +54,40 @@ ApplicationWindow {
             horizontalAlignment: Text.AlignHCenter
         }
         Text {
+            id: t2
             text: 'Экзаменационное задание по дисциплине "Разработка безопасных мобильных приложений", Московский политех, 16 июля 2021 г.'
             font.pointSize: 10
             anchors.top: t1.bottom
             width: parent.width
             horizontalAlignment: Text.AlignHCenter
             wrapMode: Text.Wrap
+        }
+        Image {
+            id: image
+            source: "qrc:/index.jpg"
+            fillMode: Image.PreserveAspectFit
+            anchors.top: t2.bottom
+            width: parent.width
+            horizontalAlignment: Image.AlignHCenter
+        }
+        Text {
+            id: t3
+            text: 'Выполнил студент группы 191-331 Филипченко Егор'
+            font.pointSize: 10
+            anchors.top: image.bottom
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+        }
+        Text {
+            id: t4
+            text: '<html><a href="https://github.com/lisenko/191_331_Filipchenko">Ссылка на репозиторий</a></html>'
+            font.pointSize: 10
+            anchors.top: t3.bottom
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
+            onLinkActivated: Qt.openUrlExternally(link)
         }
     }
 
@@ -70,10 +98,12 @@ ApplicationWindow {
             text: "fiojwefiojwe fweiofjwe jofeiwjfoiwej foiwejofjwe"
         }
         ListElement {
-            title: "Заffметка"
-            text: "хера"
+            title: "Вторая заметка"
+            text: "Съешь же еще этих мягких французских булочек, да выпей чаю."
         }
     }
+
+    property int editing: 1
 
     StackView {
         id: stackView
