@@ -52,6 +52,12 @@ Page2Form {
             height: 588
             wrapMode: Text.Wrap
             font.pointSize: 12
+            Rectangle {
+                id: notetextbg
+                color: notes.get(editing).color
+                anchors.fill: parent
+                z: -1
+            }
         }
 
         RadioButton {
@@ -62,6 +68,7 @@ Page2Form {
             height: 48
             text: qsTr("Синий")
             checked: true
+            onClicked: notetextbg.color = "#add8e6"
         }
         RadioButton {
             id: green
@@ -70,6 +77,7 @@ Page2Form {
             width: 131
             height: 48
             text: qsTr("Зеленый")
+            onClicked: notetextbg.color = "#90ee90"
         }
         RadioButton {
             id: yellow
@@ -78,6 +86,7 @@ Page2Form {
             width: 131
             height: 48
             text: qsTr("Желтый")
+            onClicked: notetextbg.color = "#f7f1af"
         }
 
         Text {
