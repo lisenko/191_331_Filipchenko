@@ -91,6 +91,7 @@ ApplicationWindow {
         }
     }
 
+    // модель для заметок, в ней находятся примеры
     ListModel {
         id: notes
         ListElement {
@@ -103,6 +104,7 @@ ApplicationWindow {
         }
     }
 
+    //в переменной индекс заметки, которую нужно редактировать
     property int editing: 1
 
     StackView {

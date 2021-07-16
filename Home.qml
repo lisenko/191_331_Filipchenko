@@ -7,8 +7,7 @@ HomeForm {
         width: 600
         height: 400
 
-        //    property alias title: title
-        //    property alias noteText: noteText
+        //сетка
         Grid {
             id: grid
             x: 10
@@ -18,6 +17,7 @@ HomeForm {
             columns: 3
             spacing: 10
 
+            //репитер создает на основе модели с заметками плитки, которые содержат их название и текст
             Repeater {
                 model: notes
                 Rectangle {
@@ -27,6 +27,7 @@ HomeForm {
                     color: "transparent"
                     border.color: "#0081f4"
                     radius: 10
+                    // нажатие на плитку подгружает страницу редактирования этой заметки
                     MouseArea {
                         anchors.fill: parent
                         onClicked: {
@@ -34,6 +35,7 @@ HomeForm {
                             stackView.push("Page1.qml")
                         }
                     }
+                    //заголовок плитки
                     Rectangle {
                         id: topBar
                         width: 200
@@ -41,6 +43,7 @@ HomeForm {
                         anchors.top: parent.top
                         color: "#0081f4"
                         radius: 10
+                        //срезаем нижние округленные края
                         Rectangle {
                             anchors.bottom: topBar.bottom
                             width: 200
@@ -58,6 +61,7 @@ HomeForm {
                             color: "#FFFFFF"
                         }
                     }
+                    //текст заметки
                     Rectangle {
                         id: content
                         width: 190
@@ -79,6 +83,8 @@ HomeForm {
             }
         }
     }
+
+    //кнопка создания заметки
     RoundButton {
         id: add
         text: "+"
