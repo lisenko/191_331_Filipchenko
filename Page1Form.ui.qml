@@ -34,5 +34,6 @@ Page {
         width: 626
         height: 689
         wrapMode: Text.Wrap
+        font.pointSize: 10
     }
 }
