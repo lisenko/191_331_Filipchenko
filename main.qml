@@ -46,42 +46,32 @@ ApplicationWindow {
         id: drawer
         width: window.width * 0.66
         height: window.height
-
-        Column {
-            anchors.fill: parent
-
-            ItemDelegate {
-                text: qsTr("Page 1")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page1Form.ui.qml")
-                    drawer.close()
-                }
-            }
-            ItemDelegate {
-                text: qsTr("Page 2")
-                width: parent.width
-                onClicked: {
-                    stackView.push("Page2Form.ui.qml")
-                    drawer.close()
-                }
-            }
+        Text {
+            id: t1
+            text: "Заметки"
+            font.pointSize: 20
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+        }
+        Text {
+            text: 'Экзаменационное задание по дисциплине "Разработка безопасных мобильных приложений", Московский политех, 16 июля 2021 г.'
+            font.pointSize: 10
+            anchors.top: t1.bottom
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.Wrap
         }
     }
 
-    RoundButton {
-        id: add
-        text: "+"
-        width: 50
-        height: 50
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        background: Rectangle {
-            radius: add.radius
-            color: "#9ae0de"
+    ListModel {
+        id: notes
+        ListElement {
+            title: "Заметка"
+            text: "fiojwefiojwe fweiofjwe jofeiwjfoiwej foiwejofjwe"
         }
-        onClicked: {
-            stackView.push("Page1Form.ui.qml")
+        ListElement {
+            title: "Заffметка"
+            text: "хера"
         }
     }
 

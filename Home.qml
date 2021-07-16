@@ -2,14 +2,8 @@ import QtQuick 2.12
 import QtQuick.Controls 2.5
 
 HomeForm {
+    title: "Заметки"
     Page {
-        ListModel {
-            id: notes
-            ListElement {
-                title: "Заметка"
-                text: "fiojwefiojwe fweiofjwe jofeiwjfoiwej foiwejofjwe"
-            }
-        }
         width: 600
         height: 400
 
@@ -19,90 +13,83 @@ HomeForm {
             id: grid
             x: 10
             y: 10
-            //width: 620
-            //height: 780
+            width: 620
+            height: 780
             columns: 3
             spacing: 10
 
-            Rectangle {
-                id: note1
-                width: 200
-                height: 200
-                color: "transparent"
-                border.color: "#0081f4"
-                radius: 10
+            Repeater {
+                model: notes
                 Rectangle {
-                    id: topBar
+                    id: note
                     width: 200
-                    height: 30
-                    anchors.top: parent.top
-                    color: "#0081f4"
-                    radius: 10
-                    Rectangle {
-                        anchors.bottom: topBar.bottom
-                        width: 200
-                        height: 10
-                        color: "#0081f4"
-                    }
-                    Text {
-                        id: title
-                        text: notes.get(0).title
-                        font.pixelSize: Qt.application.font.pixelSize * 1.4
-                        horizontalAlignment: Text.AlignHCenter
-                        verticalAlignment: Text.AlignVCenter
-                        elide: Text.ElideRight
-                        anchors.fill: parent
-                        color: "#FFFFFF"
-                    }
-                }
-                Rectangle {
-                    id: content
-                    width: 190
-                    height: 165
+                    height: 200
                     color: "transparent"
-                    anchors.top: topBar.bottom
-                    anchors.left: note1.left
-                    Text {
-                        id: noteText
+                    border.color: "#0081f4"
+                    radius: 10
+                    MouseArea {
                         anchors.fill: parent
-                        wrapMode: Text.Wrap
-                        leftPadding: 3
-                        text: notes.get(0).text
-                        elide: Text.ElideRight
+                        onClicked: stackView.push("Page1.qml")
+                    }
+                    Rectangle {
+                        id: topBar
+                        width: 200
+                        height: 30
+                        anchors.top: parent.top
+                        color: "#0081f4"
+                        radius: 10
+                        Rectangle {
+                            anchors.bottom: topBar.bottom
+                            width: 200
+                            height: 10
+                            color: "#0081f4"
+                        }
+                        Text {
+                            id: title
+                            text: notes.get(index).title
+                            font.pixelSize: Qt.application.font.pixelSize * 1.4
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            elide: Text.ElideRight
+                            anchors.fill: parent
+                            color: "#FFFFFF"
+                        }
+                    }
+                    Rectangle {
+                        id: content
+                        width: 190
+                        height: 165
+                        color: "transparent"
+                        anchors.top: topBar.bottom
+                        anchors.left: note.left
+                        Text {
+                            id: noteText
+                            anchors.fill: parent
+                            wrapMode: Text.Wrap
+                            leftPadding: 3
+                            text: notes.get(index).text
+                            elide: Text.ElideRight
+                        }
                     }
                 }
             }
-
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
-            Rectangle {
-                color: "red"
-                width: 200
-                height: 200
-            }
+        }
+    }
+    RoundButton {
+        id: add
+        text: "+"
+        width: 50
+        height: 50
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
+        font.bold: true
+        font.pointSize: 10
+        background: Rectangle {
+            radius: add.radius
+            color: "#9ae0de"
+        }
+        onClicked: {
+            stackView.push("Page2.qml")
         }
     }
 }
